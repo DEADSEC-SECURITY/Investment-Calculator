@@ -150,9 +150,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Installer"
+        "ProductName" = "8:Investment Calculator"
         "ProductCode" = "8:{A8FBE7F6-3EB6-4D3C-B928-1EA5F9534BE4}"
-        "PackageCode" = "8:{EB7A2EDE-F319-4055-8D27-F8FF907CF7D2}"
+        "PackageCode" = "8:{8A3AA793-5493-45F8-9CEE-CB4E9391B552}"
         "UpgradeCode" = "8:{5C7BB6D0-939E-4B4B-8ED6-6A699B5D4B94}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
