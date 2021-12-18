@@ -1,0 +1,135 @@
+﻿<Page x:Class="Investment.BondAnalyzer.BondPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Investment.BondAnalyzer" 
+      xmlns:toggleSwitch="clr-namespace:Investment.ToggleSwitch" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="Bond Analyzer" d:Background="white">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="20" VerticalAlignment="Center" Margin="35,0,0,0">Bond Analyzer</TextBlock>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Margin="0,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Margin="0,5,0,0">
+                                <TextBlock Margin="0,0,0,5">Unit Price (€)</TextBlock>
+                                <TextBox Name="unitPriceBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" Margin="0,5,0,0">
+                                <TextBlock Margin="0,0,0,5">Number of Units</TextBlock>
+                                <TextBox Name="unitAmountBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                            </StackPanel>
+                        </Grid>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,25,0,0">
+                            OR
+                        </TextBlock>
+                        <StackPanel Grid.Column="2" Margin="10,5,0,0">
+                            <TextBlock Margin="0,0,0,5">Amount Paid (€)</TextBlock>
+                            <TextBox Name="amountPaiedBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="0,0,20,0">
+                            <TextBlock Margin="0,0,0,5">Anual Yield (%)</TextBlock>
+                            <TextBox Name="anualYieldBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="20,0,0,0">
+                            <TextBlock Margin="0,0,0,5">Duration (Years)</TextBlock>
+                            <TextBox Name="durationBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Grid.Row="3" Margin="0,5,0,0">
+                        <TextBlock Margin="0,0,0,5">Tax (%)</TextBlock>
+                        <TextBox Name="taxBox" PreviewTextInput="PreviewTextOnlyNumeric"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Margin="0,5,0,5" Orientation="Horizontal">
+                        <TextBlock VerticalAlignment="Center" Margin="0,0,10,0">Reinvest Profits</TextBlock>
+                        <toggleSwitch:ToggleSwitch x:Name="reinvestProfitsSwitch" Margin="2,0,2,0" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <Button Grid.Row="5" Margin="0,5,0,0" Click="CalculateBond" Height="40">
+                        Calculate
+                    </Button>
+                </Grid>
+                <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock HorizontalAlignment="Center" FontSize="20" Margin="0,0,0,10">Your Forecast</TextBlock>
+                    <StackPanel Grid.Row="1" Margin="0,5,0,0">
+                        <TextBlock Margin="0,0,0,5">Anual Return (€)</TextBlock>
+                        <TextBox Name="anualReturnBox" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Margin="0,5,0,0">
+                        <TextBlock Margin="0,0,0,5">Total Return (€)</TextBlock>
+                        <TextBox Name="totalReturnBox" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3" Margin="0,5,0,0">
+                        <TextBlock Margin="0,0,0,5">Tax (€)</TextBlock>
+                        <TextBox Name="owedTaxBox" IsReadOnly="True"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4" Margin="0,5,0,0">
+                        <TextBlock Margin="0,0,0,5">After Tax (€)</TextBlock>
+                        <TextBox Name="totalReturnAfterTaxBox" IsReadOnly="True"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    <Page.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#212121"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="Border" CornerRadius="2" BorderThickness="0" Background="#212121" BorderBrush="#212121">
+                            <ContentPresenter Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsMouseOver" Value="True">
+                                <Setter TargetName="Border" Property="Background" Value="#212121"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+</Page>
