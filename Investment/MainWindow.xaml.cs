@@ -57,7 +57,7 @@ namespace Investment
             SetCurrentPage("BondPage");
         }
         private void StockPageClick(object sender, RoutedEventArgs e) {
-            //content.Content = new StockAnalyzer.StockPage();
+            content.Content = new StockAnalyzer.StockPage();
             SetCurrentPage("StockPage");
         }
     }
